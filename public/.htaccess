@@ -1,10 +1,9 @@
+DirectoryIndex index.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
   
-  # Protect hidden files and directories
-  RewriteRule "(^|/)\.(?!well-known)" - [F]
-
   # Existing files and directories serve directly
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
