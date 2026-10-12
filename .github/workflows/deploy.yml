@@ -1,9 +1,11 @@
 name: Deploy React SPA to Hostinger
 
+# CI/CD automated push trigger disabled as requested
+# on:
+#   push:
+#     branches:
+#       - main
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:
