@@ -63,7 +63,7 @@ export default function IndustriesSection() {
   ];
 
   return (
-    <section className="w-full bg-[#f7f9fb] py-24 lg:py-32" id="industries">
+    <section className="w-full bg-[#f7f9fb] py-14 lg:py-20" id="industries">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

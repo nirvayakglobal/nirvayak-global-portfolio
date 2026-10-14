@@ -91,7 +91,7 @@ export default function AISolutionsSection() {
   ];
 
   return (
-    <section className="w-full bg-[#f7f9fb] py-24 lg:py-32" id="ai-solutions">
+    <section className="w-full bg-[#f7f9fb] py-14 lg:py-20" id="ai-solutions">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

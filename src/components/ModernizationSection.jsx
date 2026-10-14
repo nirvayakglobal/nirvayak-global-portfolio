@@ -13,7 +13,7 @@ export default function ModernizationSection() {
   ];
 
   return (
-    <section className="w-full bg-[#f8fafc] border-y border-slate-200 py-24 lg:py-32" id="modernization">
+    <section className="w-full bg-[#f8fafc] border-y border-slate-200 py-14 lg:py-20" id="modernization">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -127,3 +127,4 @@ export default function ModernizationSection() {
     </section>
   );
 }
+

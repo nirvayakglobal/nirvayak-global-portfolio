@@ -36,7 +36,7 @@ export default function CaseStudiesSection() {
   ];
 
   return (
-    <section className="w-full bg-[#f8fafc] border-y border-slate-200 py-24 lg:py-32" id="case-studies">
+    <section className="w-full bg-[#f8fafc] border-y border-slate-200 py-14 lg:py-20" id="case-studies">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

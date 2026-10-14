@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import TrustStrip from './components/TrustStrip';
 import ServicesOverview from './components/ServicesOverview';
 import ModernizationSection from './components/ModernizationSection';
-import AISolutionsSection from './components/AISolutionsSection';
-import CapabilitiesSection from './components/CapabilitiesSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import ProcessSection from './components/ProcessSection';
 import IndustriesSection from './components/IndustriesSection';
@@ -29,8 +26,7 @@ export default function App() {
       const sections = [
         'services-overview', 
         'modernization', 
-        'ai-solutions', 
-        'capabilities', 
+        'why-choose-us',
         'process', 
         'industries', 
         'case-studies', 
@@ -67,16 +63,16 @@ export default function App() {
       </div>
 
       {/* Modern Header Navigation */}
-      <Header scrollProgress={scrollProgress} activeSection={activeSection} />
+      <Header 
+        scrollProgress={scrollProgress} 
+        activeSection={activeSection} 
+      />
 
       {/* Main Single-Page Content Flow */}
       <main className="relative z-10 pt-20">
         <Hero />
-        <TrustStrip />
         <ServicesOverview />
         <ModernizationSection />
-        <AISolutionsSection />
-        <CapabilitiesSection />
         <WhyChooseUs />
         <ProcessSection />
         <IndustriesSection />

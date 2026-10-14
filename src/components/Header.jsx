@@ -2,11 +2,11 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 export default function Header({ scrollProgress, activeSection }) {
+
   const navItems = [
     { label: 'Services', href: '#services-overview' },
     { label: 'Modernization', href: '#modernization' },
-    { label: 'AI & Automation', href: '#ai-solutions' },
-    { label: 'Capabilities', href: '#capabilities' },
+    { label: 'Why Us', href: '#why-choose-us' },
     { label: 'Process', href: '#process' },
     { label: 'Industries', href: '#industries' },
     { label: 'Case Studies', href: '#case-studies' },
@@ -20,51 +20,48 @@ export default function Header({ scrollProgress, activeSection }) {
         style={{ width: `${scrollProgress}%` }}
       />
       
-      <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Brand Logo & Tag */}
-        <a href="#" className="flex items-center gap-3 group focus:outline-hidden">
+        <a href="#" className="flex items-center gap-3 group focus:outline-hidden shrink-0">
           <img 
             alt="Nirvayak Global Logo" 
-            className="h-8 w-auto object-contain transition-transform group-hover:scale-105" 
-            src="https://lh3.googleusercontent.com/aida/AEtjO1VGqMP3EBISH_3byp5v423_h6Hd5l1m5OQ3mt2IGBeQTnn0K-nfYuoUynMeIHBE4e2rCFE1TqjC3j4DeTA0tWTHwn81tPc2acrb6dtZUjbR_27OK02Tt5CpBzrBRcDQZZYsUhGBrpMHywcoCNBhDy8f_lI2VrnJ0Vmqfw1sJETo8xOyVpgBAycn_OX6ssztAs6Dnad3c6cxOQJzHbTvUuKTwkiskpCtCEeTo4nOMfrqXCjp7cJZ-xgurg" 
+            className="h-11 w-auto object-contain transition-transform group-hover:scale-105" 
+            src="/logo.png" 
           />
           <div>
             <span className="text-xl font-bold tracking-tight text-[#0f172a] flex items-center gap-1.5 font-['Hanken_Grotesk']">
               Nirvayak <span className="text-[#004ac6]">Global</span>
             </span>
-            <span className="hidden sm:block text-[10px] uppercase font-mono tracking-wider text-slate-500 font-semibold">
-              Enterprise IT Solutions & AI
+            <span className="hidden sm:block text-[10.5px] tracking-tight text-slate-500 font-semibold font-sans">
+              Transforming Technology. Accelerating Growth.
             </span>
           </div>
         </a>
 
-        {/* Quick-Jump Section Navigation Pills */}
-        <nav className="hidden xl:flex items-center gap-1 p-1 bg-slate-100/80 rounded-full border border-slate-200/80 text-xs font-medium">
-          {navItems.map((item) => {
-            const isActive = activeSection === item.href.replace('#', '');
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
-                  isActive
-                    ? 'bg-white text-[#004ac6] font-semibold shadow-xs'
-                    : 'text-slate-600 hover:text-[#0f172a] hover:bg-white/60'
-                }`}
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </nav>
+        {/* Center: Quick-Jump Section Navigation Pills */}
+        <div className="hidden lg:flex items-center gap-3">
+          <nav className="flex items-center gap-1 p-1 bg-slate-100/80 rounded-full border border-slate-200/80 text-xs font-medium">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.replace('#', '');
+              return (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
+                    isActive
+                      ? 'bg-white text-[#004ac6] font-semibold shadow-xs'
+                      : 'text-slate-600 hover:text-[#0f172a] hover:bg-white/60'
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
+          </nav>
+        </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs font-mono text-slate-600">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span>Senior Architect Led</span>
-          </div>
-          
+        <div className="flex items-center gap-3 shrink-0">
           <a 
             href="#contact"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#2563eb] hover:bg-[#004ac6] text-white text-sm font-semibold shadow-sm transition-all duration-200 active:scale-95"

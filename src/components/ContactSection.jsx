@@ -5,14 +5,14 @@ export default function ContactSection() {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    projectType: 'ai-development',
+    phone: '',
+    projectType: 'Web or Mobile App',
     message: ''
   });
   const [formStatus, setFormStatus] = useState('idle'); // idle | submitting | success
 
   const handleCopyEmail = () => {
-    navigator.clipboard?.writeText('contact@nirvayak.com');
+    navigator.clipboard?.writeText('info@nirvayakglobal.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2500);
   };
@@ -24,14 +24,14 @@ export default function ContactSection() {
     setTimeout(() => {
       setFormStatus('success');
       // Prepares mailto as direct guaranteed fail-safe for shared hosting without backend setup
-      const subject = encodeURIComponent(`Project Inquiry: ${formData.projectType}`);
-      const body = encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nProject Type: ${formData.projectType}\n\nMessage:\n${formData.message}`);
-      window.location.href = `mailto:contact@nirvayak.com?subject=${subject}&body=${body}`;
+      const subject = encodeURIComponent(`Inquiry from ${formData.name || 'Client'}: ${formData.projectType}`);
+      const body = encodeURIComponent(`Name: ${formData.name}\nContact / Phone: ${formData.phone}\nService: ${formData.projectType}\n\nBusiness Needs / Questions:\n${formData.message}`);
+      window.location.href = `mailto:info@nirvayakglobal.com?subject=${subject}&body=${body}`;
     }, 600);
   };
 
   return (
-    <section id="contact" className="w-full bg-[#f7f9fb] py-24 lg:py-32 relative overflow-hidden">
+    <section id="contact" className="w-full bg-[#f7f9fb] py-14 lg:py-20 relative overflow-hidden">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="rounded-3xl bg-white border border-slate-200 p-8 sm:p-14 shadow-xl relative overflow-hidden">
@@ -50,28 +50,28 @@ export default function ContactSection() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* Direct Connect Options */}
-            <div className="lg:col-span-5 flex flex-col gap-4">
-              
-              {/* Email Box */}
-              <div className="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col items-start text-left shadow-2xs">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#004ac6]">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-mono uppercase text-slate-500 font-semibold block">Direct Inquiries</span>
-                    <span className="text-[#0f172a] font-bold text-base font-mono">contact@nirvayak.com</span>
-                  </div>
+            {/* Email Info Card */}
+            <div className="lg:col-span-4 flex flex-col gap-4">
+              <div className="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col text-left">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#004ac6] mb-4">
+                  <Mail className="w-6 h-6" />
                 </div>
-                <p className="text-xs text-slate-600 mb-4 mt-1">
-                  Guaranteed response from a senior architect within 24 business hours.
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Email Us Directly</span>
+                <a 
+                  href="mailto:info@nirvayakglobal.com" 
+                  className="text-lg font-bold text-[#004ac6] hover:underline break-all mb-2"
+                >
+                  info@nirvayakglobal.com
+                </a>
+                <p className="text-xs text-slate-600 leading-relaxed mb-6">
+                  Prefer sending an email directly? Drop us a line with your project details and we'll reply within 24 business hours.
                 </p>
+
                 <button 
                   onClick={handleCopyEmail}
-                  className="w-full py-2.5 px-4 rounded-lg bg-white hover:bg-slate-50 border border-slate-300 text-xs font-mono text-slate-700 transition-all flex items-center justify-center gap-2 shadow-2xs active:scale-95"
+                  className="w-full py-2.5 px-4 rounded-lg bg-white hover:bg-slate-50 border border-slate-300 text-xs font-medium text-slate-700 transition-all flex items-center justify-center gap-2 shadow-2xs active:scale-95"
                 >
                   {copiedEmail ? (
                     <>
@@ -84,55 +84,20 @@ export default function ContactSection() {
                 </button>
               </div>
 
-              {/* Consultation Box */}
-              <div className="p-6 rounded-2xl bg-[#f8fafc] border border-slate-200 flex flex-col items-start text-left shadow-2xs">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-xl bg-sky-50 border border-sky-100 flex items-center justify-center text-[#2563eb]">
-                    <Calendar className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="text-xs font-mono uppercase text-slate-500 font-semibold block">Discovery Session</span>
-                    <span className="text-[#0f172a] font-bold text-base">30-Min Architecture Call</span>
-                  </div>
-                </div>
-                <p className="text-xs text-slate-600 mb-4 mt-1">
-                  Zero commitment. We review your tech debt, performance bottlenecks, and target specs.
-                </p>
-                <a 
-                  href="mailto:contact@nirvayak.com?subject=Architecture%20Discovery%20Session"
-                  className="w-full py-2.5 px-4 rounded-lg bg-[#2563eb] hover:bg-[#004ac6] text-white text-xs font-semibold shadow-xs transition-all flex items-center justify-center gap-2 active:scale-95"
-                >
-                  <span>Book a Consultation</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+              <div className="p-4 rounded-xl bg-white border border-slate-200 flex items-center gap-3 text-xs text-slate-600">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>We respect your privacy and will never share your email.</span>
               </div>
-
-              {/* Enterprise Commitments */}
-              <div className="p-4 rounded-2xl bg-white border border-slate-200 space-y-2 text-xs font-mono text-slate-600">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Strict Non-Disclosure (NDA) Protocol</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Transparent Fixed or Agile Sprint Cycles</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                  <span>Direct Senior Solutions Architect Access</span>
-                </div>
-              </div>
-
             </div>
 
-            {/* Quick Consultation Form */}
-            <div className="lg:col-span-7 bg-[#f8fafc] border border-slate-200 rounded-2xl p-6 sm:p-8">
+            {/* Simple Email Contact Form */}
+            <div className="lg:col-span-8 bg-[#f8fafc] border border-slate-200 rounded-2xl p-6 sm:p-8">
               <div className="flex items-center justify-between mb-6 pb-3 border-b border-slate-200">
                 <span className="font-bold text-base text-[#0f172a] flex items-center gap-2">
                   <MessageSquare className="w-4 h-4 text-[#004ac6]" />
-                  Initiate Architectural Review
+                  Let's Discuss Your Business Requirements
                 </span>
-                <span className="text-xs font-mono text-slate-500">Fast-Track Request</span>
+                <span className="text-xs text-slate-500">We'll respond via email</span>
               </div>
 
               {formStatus === 'success' ? (
@@ -140,9 +105,9 @@ export default function ContactSection() {
                   <div className="w-12 h-12 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4">
                     <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <h3 className="text-lg font-bold text-[#0f172a]">Inquiry Dispatched!</h3>
+                  <h3 className="text-lg font-bold text-[#0f172a]">Email Client Opened!</h3>
                   <p className="text-sm text-slate-600 mt-2 max-w-md">
-                    Thank you, {formData.name || 'there'}. We have prepared your email client and routed your request to our engineering leadership.
+                    Thank you, {formData.name || 'there'}. Your email client should now be open with your message ready to send. We will review your requirements and reply shortly.
                   </p>
                   <button
                     onClick={() => setFormStatus('idle')}
@@ -169,14 +134,14 @@ export default function ContactSection() {
                     </div>
                     <div>
                       <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Work Email *
+                        Mobile Number *
                       </label>
                       <input 
-                        type="email" 
+                        type="tel" 
                         required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="alex@company.com"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="e.g. +1 (555) 000-0000"
                         className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm text-[#0f172a] focus:outline-hidden focus:border-[#004ac6] focus:ring-1 focus:ring-[#004ac6] transition-all"
                       />
                     </div>
@@ -184,30 +149,31 @@ export default function ContactSection() {
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Primary Objective
+                      Service or Area of Interest
                     </label>
                     <select
                       value={formData.projectType}
                       onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                       className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm text-[#0f172a] focus:outline-hidden focus:border-[#004ac6] focus:ring-1 focus:ring-[#004ac6] transition-all"
                     >
-                      <option value="legacy-modernization">Legacy Software Modernization</option>
-                      <option value="ai-development">Applied AI & Intelligent Agents</option>
-                      <option value="cloud-migration">Cloud Migration & Multi-Region Infra</option>
-                      <option value="custom-web-mobile">Custom Web or Mobile Application</option>
-                      <option value="enterprise-architecture">Enterprise Architecture Review</option>
+                      <option value="Web or Mobile App">Build a Web or Mobile Application</option>
+                      <option value="AI & Automation">AI Solutions & Intelligent Automation</option>
+                      <option value="Software Modernization">Software Modernization & Maintenance</option>
+                      <option value="Cloud Solutions">Cloud Infrastructure & Migration</option>
+                      <option value="General Consultation">General Discussion / Other</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
-                      Project Scope & Timeline
+                      Your Business Needs or Questions *
                     </label>
                     <textarea 
-                      rows={3}
+                      rows={4}
+                      required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Briefly describe your existing stack, bottleneck, or target outcomes..."
+                      placeholder="Describe what you're looking for, challenges you're facing, or ask us any questions. We'll review your requirements and reach out to you directly via email."
                       className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-slate-300 text-sm text-[#0f172a] focus:outline-hidden focus:border-[#004ac6] focus:ring-1 focus:ring-[#004ac6] transition-all"
                     />
                   </div>
@@ -217,11 +183,11 @@ export default function ContactSection() {
                     disabled={formStatus === 'submitting'}
                     className="w-full py-3.5 px-6 rounded-lg bg-[#2563eb] hover:bg-[#004ac6] text-white font-semibold text-sm shadow-sm transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98] disabled:opacity-75"
                   >
-                    <span>{formStatus === 'submitting' ? 'Preparing Submission...' : 'Transmit Request'}</span>
+                    <span>{formStatus === 'submitting' ? 'Preparing Email...' : 'Send via Email'}</span>
                     <Send className="w-4 h-4" />
                   </button>
                   <p className="text-[11px] text-center text-slate-500">
-                    Shared hosting safe: routes securely via mail client fail-safe if server API is unavailable.
+                    We will get back to your email within 24 hours.
                   </p>
                 </form>
               )}

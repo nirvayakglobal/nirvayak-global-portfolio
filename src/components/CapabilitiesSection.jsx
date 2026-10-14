@@ -13,69 +13,69 @@ import {
 export default function CapabilitiesSection() {
   const capabilities = [
     {
-      icon: Globe2,
-      color: 'bg-blue-50 border-blue-100 text-[#004ac6]',
-      title: 'Web Applications',
-      subtitle: 'Responsive, resilient, high-speed'
-    },
-    {
-      icon: Smartphone,
-      color: 'bg-sky-50 border-sky-100 text-[#2563eb]',
-      title: 'Android & iOS Mobile',
-      subtitle: 'Native & cross-platform UX'
-    },
-    {
       icon: Boxes,
-      color: 'bg-slate-100 border-slate-200 text-slate-700',
-      title: 'SaaS Products',
-      subtitle: 'Multi-tenant, subscription architectures'
+      color: 'bg-blue-50 border-blue-100 text-[#004ac6]',
+      title: 'B2B SaaS Platforms',
+      subtitle: 'Multi-tenant, subscription & billing architectures'
     },
     {
       icon: Building2,
-      color: 'bg-blue-50 border-blue-100 text-[#004ac6]',
-      title: 'Enterprise Software',
-      subtitle: 'Mission-critical business systems'
-    },
-    {
-      icon: Cloud,
       color: 'bg-indigo-50 border-indigo-100 text-[#2563eb]',
-      title: 'Cloud-Native Platforms',
-      subtitle: 'Kubernetes, microservices & serverless'
+      title: 'Enterprise ERP & Portals',
+      subtitle: 'Mission-critical internal operations & dashboards'
     },
     {
-      icon: Workflow,
-      color: 'bg-slate-100 border-slate-200 text-slate-700',
-      title: 'Business Automation',
-      subtitle: 'Friction-free workflow tools'
-    },
-    {
-      icon: Terminal,
+      icon: Smartphone,
       color: 'bg-sky-50 border-sky-100 text-[#004ac6]',
-      title: 'API Integrations',
-      subtitle: 'Robust third-party connectivity'
+      title: 'Customer-Facing Mobile Apps',
+      subtitle: 'High-retention iOS & Android applications'
     },
     {
       icon: Cpu,
       color: 'bg-blue-50 border-blue-100 text-[#004ac6]',
-      title: 'AI-Powered Products',
-      subtitle: 'Smart predictive capabilities'
+      title: 'AI Agents & RAG Engines',
+      subtitle: 'Autonomous document analysis & context intelligence'
+    },
+    {
+      icon: Cloud,
+      color: 'bg-indigo-50 border-indigo-100 text-[#2563eb]',
+      title: 'Cloud-Native Infrastructure',
+      subtitle: 'Kubernetes clusters, auto-scaling & zero-trust'
+    },
+    {
+      icon: Workflow,
+      color: 'bg-slate-100 border-slate-200 text-slate-700',
+      title: 'Automated Operations Systems',
+      subtitle: 'Cross-department automated workflow pipelines'
+    },
+    {
+      icon: Terminal,
+      color: 'bg-sky-50 border-sky-100 text-[#004ac6]',
+      title: 'High-Throughput APIs',
+      subtitle: 'Resilient microservices & payment/third-party bridges'
+    },
+    {
+      icon: Globe2,
+      color: 'bg-blue-50 border-blue-100 text-[#004ac6]',
+      title: 'Modern Web Platforms',
+      subtitle: 'Ultra-fast Next/React customer experiences'
     }
   ];
 
   return (
-    <section className="w-full bg-[#f8fafc] border-y border-slate-200 py-24 lg:py-32" id="capabilities">
+    <section className="w-full bg-[#f8fafc] border-y border-slate-200 py-14 lg:py-20" id="capabilities">
       <div className="max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-mono uppercase tracking-widest text-[#004ac6] font-semibold mb-2">
-            Full-Lifecycle Engineering
+            Platforms We Deliver
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0f172a] tracking-tight font-['Hanken_Grotesk']">
-            From Idea to Scalable Digital Product
+            Solutions Architected & Built by Nirvayak
           </h2>
           <p className="text-base sm:text-lg text-slate-600 mt-4 leading-relaxed">
-            We partner with you across the full spectrum of software product delivery: Discovery & Planning, Architecture, High-velocity Development, Quality Assurance, Cloud Deployment, and Ongoing Evolution.
+            From greenfield SaaS products to complex enterprise portals and AI pipelines, explore the production-grade platforms we engineer for our clients.
           </p>
         </div>
 
