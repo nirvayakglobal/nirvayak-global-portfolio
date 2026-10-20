@@ -33,7 +33,7 @@ export default function Header({ scrollProgress, activeSection }) {
               Nirvayak <span className="text-[#004ac6]">Global</span>
             </span>
             <span className="hidden sm:block text-[10.5px] tracking-tight text-slate-500 font-semibold font-sans">
-              Transforming Technology. Accelerating Growth.
+              Transforming Technology. Accelerating Growth
             </span>
           </div>
         </a>
