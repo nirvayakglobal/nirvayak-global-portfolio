@@ -25,7 +25,7 @@ export default function ContactSection() {
     setStatusMessage('');
 
     try {
-      const response = await fetch('/contact.php', {
+      const response = await fetch('/public/contact.php', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -47,25 +47,13 @@ export default function ContactSection() {
           message: ''
         });
       } else {
-        // Fallback to mailto if PHP backend isn't available in local dev or hosting environment
-        console.warn('Backend mailer returned error, triggering mailto fallback:', result?.message);
-        const subject = encodeURIComponent(`Inquiry from ${formData.name || 'Client'}: ${formData.projectType}`);
-        const body = encodeURIComponent(
-          `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.projectType}\n\nMessage:\n${formData.message}`
-        );
-        window.location.href = `mailto:info@nirvayakglobal.com?subject=${subject}&body=${body}`;
-        setFormStatus('success');
-        setStatusMessage('Your inquiry was processed. We will get back to you shortly!');
+        setFormStatus('error');
+        setStatusMessage(result?.message || 'Server was unable to deliver your message at this time. Please email us directly at info@nirvayakglobal.com.');
       }
     } catch (err) {
-      console.warn('Network error or local dev environment, triggering mailto fallback:', err);
-      const subject = encodeURIComponent(`Inquiry from ${formData.name || 'Client'}: ${formData.projectType}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nService: ${formData.projectType}\n\nMessage:\n${formData.message}`
-      );
-      window.location.href = `mailto:info@nirvayakglobal.com?subject=${subject}&body=${body}`;
-      setFormStatus('success');
-      setStatusMessage('Your inquiry was processed. We will get back to you shortly!');
+      console.error('Contact form submission error:', err);
+      setFormStatus('error');
+      setStatusMessage('Unable to reach the server. Please check your internet connection or email us directly at info@nirvayakglobal.com.');
     }
   };
 
@@ -138,6 +126,13 @@ export default function ContactSection() {
                 </span>
                 <span className="text-xs text-slate-500">We'll respond via email</span>
               </div>
+
+              {formStatus === 'error' && (
+                <div className="mb-4 p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm flex items-start gap-3">
+                  <span className="font-bold text-red-800">Notice:</span>
+                  <p className="flex-1 text-xs leading-relaxed">{statusMessage}</p>
+                </div>
+              )}
 
               {formStatus === 'success' ? (
                 <div className="p-8 rounded-xl bg-white border border-emerald-300 text-center flex flex-col items-center">
